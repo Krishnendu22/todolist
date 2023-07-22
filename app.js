@@ -6,11 +6,11 @@ main().catch(err => console.log(err));
 const bodyParser=require("body-parser")
 
 const _=require("lodash")
-
+const dotenv=require('dotenv').config();
 async function main() 
 
    {
-      await mongoose.connect('mongodb+srv://krishnendu:krishnendu22@cluster0.37roixz.mongodb.net/todolistDB?retryWrites=true&w=majority');
+      await mongoose.connect("mongodb+srv://krishnendu:krishnendu22@cluster0.37roixz.mongodb.net/todolistDB?retryWrites=true&w=majority");
 
       console.log("Connected");
 
@@ -159,7 +159,7 @@ app.post("/delete", async function(req, res){
 
 
 
-app.listen(3000,function()
+app.listen(process.env.PORT ||3000,function()
 {
     console.log("Server on port 3000 is deployed.")
 })
